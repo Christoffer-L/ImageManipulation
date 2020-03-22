@@ -1,0 +1,19 @@
+{
+  "name": "ImageManipulationApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@microsoft/signalr": "^3.1.2",
+    "@types/crypto-js": "^3.1.43",
+    "@types/jquery": "^3.3.33",
+    "@types/node": "^13.9.2",
+    "crypto-js": "^4.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5"
+  }
+}

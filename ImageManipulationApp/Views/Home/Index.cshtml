@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Image manipulation";
+}
+
+<div class="row">
+    <div class="col-9">
+        <div class="row shadow-sm p-3" id="visibleImageRow">
+            <!-- Image preview field -->
+            <div id="imageContainer" class="col-10 mx-auto">
+                <img id="imagePreview" class="mx-auto"/>
+            </div>
+
+            <!-- All input fields for the inital image manipulation -->
+            <div class="col-2">
+                <!-- Image -->
+                <div class="form-group" id="imageGroup">
+                    <label for="imageFile">Last opp bilde</label>
+                    <input id="imageInput" class="form-control pt-1" name="imageFile" type="file" accept="*/image" size="1" style="cursor: pointer" value="Choose file" aria-describedby="imageFileHelp" />
+                    <small id="imageFileHelp" class="form-text text-muted">Velg et bilde som skal bli manipulert</small>
+                </div>
+
+                <!-- Postal code -->
+                <div class="form-group collapse" id="postalCodeInputGroup">
+                    <label for="postalCodeInput">Post adresse</label>
+                    <div class="">
+                        <input id="postalCodeInput" class="form-control" name="postalCodeInput" type="number" maxlength="4" />
+                        <small id="postCodeHelp" class="form-text text-muted">Skriv en gyldig post kode</small>
+                        <p id="postalCodeAreaName" class=""></p>
+                    </div>
+                </div>
+
+                <!-- Upload Image + postal code button -->
+                <div class="form-group collapse" id="uploadImageInputGroup">
+                    <input id="uploadInput" type="button" style="cursor: pointer" value="Send bilde" />
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Canvas and input field to encrypt manipulated image -->
+        <div class="row shadow-sm p-3 collapse" id="hiddenImageRow">
+
+            <div class="mb-3" id="manipulatedImageContainer">
+                <canvas id="imageCanvas" height="800" width="1200"></canvas>
+            </div>
+
+            <div class="mb-3" id="passphraseInputGroup">
+                <!-- Passphrase input -->
+                <div class="form-group">
+                    <label for="passphraseInput">Velg et hemmelig passord mellom 4 - 12 karakterer</label>
+                    <input id="passphraseInput" class="form-control" name="passphraseInput" type="text" />
+                    <small id="passphraseInputHelper" class="form-text text-muted">Brukt for å kryptere bildet ditt!</small>
+                </div>
+
+                <!-- Upload button encrypted image -->
+                <div class="form-group" id="passphraseInputGroup">
+                    <input id="passphraseInputUpload" type="button" style="cursor: pointer" value="Krypter bilde" />
+                    <h3 id="guidNumber" class="mt-4 mb-2"></h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification list -->
+    <div class="col-3 p-3">
+        <h4>Notifications</h4>
+        <ol id="notificationList" class="mt-2">
+        </ol>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/crypto-js/crypto-js.js"></script>
+    <script type="text/javascript" src="~/js/index.js"></script>
+
+    <script type="text/javascript" src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script type="text/javascript" src="~/js/notification.js"></script>
+}

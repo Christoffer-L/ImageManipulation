@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Image manipulation - Get";
+}
+
+<div class="row">
+    <div class="col-lg-10">
+        <div class="row shadow-sm p-3" id="visibleImageRow">
+            
+            <!-- Image preview field -->
+            <div class="col-lg-10" id="imageContainer"></div>
+
+            <div class="col-lg-2">
+                <!-- GUID -->
+                <div class="form-group" id="GUIDInputGroup">
+                    <label for="GUIDInput">Enter your GUID</label>
+                    <input id="GUIDInput" class="form-control" name="GUIDInput" type="text" />
+                    <small id="GUIDHelp" class="form-text text-muted">GUID is the identification of your image</small>
+
+                    <input id="uploadInput" type="button" style="cursor: pointer" value="Send GUID" />
+                </div>
+
+                <!-- Passphrase -->
+                <div class="form-group collapse" id="passphraseInputGroup">
+                    <label for="passphraseInput">Write your passphrase</label>
+                    <input id="passphraseInput" class="form-control" name="passphraseInput" type="text" />
+                    <small id="passphraseInputHelper" class="form-text text-muted">Used to decrypt your image</small>
+
+                    <input id="passphraseConfirmInput" type="button" style="cursor: pointer" value="Confirm passphrase" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification list -->
+    <div class="col-lg-2 p-3">
+        <h4>Notifications</h4>
+        <ol id="notificationList" class="mt-2"></ol>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script type="text/javascript" src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script type="text/javascript" src="~/js/notification.js"></script>
+
+    <script type="text/javascript" src="~/js/crypto-js/crypto-js.js"></script>
+    <script type="text/javascript" src="~/js/getimage.js"></script>
+}
